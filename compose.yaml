@@ -1,0 +1,21 @@
+services:
+  postgres:
+#    jdbc:postgresql://localhost:5432/spring-boot-test-range
+    image: 'postgres:latest'
+    container_name: postgres
+    environment:
+      - 'POSTGRES_DB=spring-boot-test-range'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=myuser'
+    ports:
+      - '5432:5432'
+  keycloak:
+    image: 'quay.io/keycloak/keycloak:latest'
+    container_name: keycloak
+    environment:
+      - 'KEYCLOAK_ADMIN=admin'
+      - 'KEYCLOAK_ADMIN_PASSWORD=admin'
+    ports:
+      - '8080:8080'
+    command: ["start-dev"]
+    restart: unless-stopped
