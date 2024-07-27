@@ -2,4 +2,4 @@
 GET http://localhost:8081/pots
 
 ###
-GET http://localhost:8081/pots/1
+GET http://localhost:8081/notes/1
